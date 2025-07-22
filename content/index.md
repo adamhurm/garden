@@ -3,8 +3,6 @@ title: Adam Hurm's digital garden
 created: 2025-07-21T19:57
 ---
 
-# Adam Hurm
-
 Hey, welcome to my public-facing digital garden. Thanks for stopping by. 
 
 ## Find me on other sites
