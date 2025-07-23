@@ -4,7 +4,6 @@ updated: 2025-07-21T18:29
 tags:
   - unifi
   - kubernetes
-  - shareable
 ---
 
 I found that setting up Unifi Network App in Kubernetes was needlessly complicated and required too many cluster networking changes, so it was abandoned in favor of [[Unifi Network App in Proxmox VM]] (which was later replaced by a Dream Machine Pro once I needed a Unifi Protect controller).

@@ -4,7 +4,6 @@ updated: 2025-07-21T17:31
 tags:
   - proxmox
   - unifi
-  - shareable
 ---
 Resources used:
 - [debian-vm script from ProxmoxVE community repo](https://community-scripts.github.io/ProxmoxVE/scripts?id=debian-vm)

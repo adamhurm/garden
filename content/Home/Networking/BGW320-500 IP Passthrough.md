@@ -3,7 +3,6 @@ created: 2024-01-16T17:49
 updated: 2025-07-21T18:27
 tags:
   - homelab
-  - shareable
 ---
 If you move in to a house with AT&T Fiber, you will likely receive a BGW320-500 ([FCC report pdf](https://fcc.report/FCC-ID/O6ZBGW320/4522478.pdf)) or some similar model.
 

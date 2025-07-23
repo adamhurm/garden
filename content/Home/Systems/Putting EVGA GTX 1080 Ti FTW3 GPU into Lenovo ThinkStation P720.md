@@ -2,7 +2,6 @@
 created: 2025-07-07T00:49
 updated: 2025-07-21T18:39
 tags:
-  - shareable
   - homelab
   - thinkstation
 ---

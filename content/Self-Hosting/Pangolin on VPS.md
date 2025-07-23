@@ -2,7 +2,6 @@
 created: 2025-06-17T14:25
 updated: 2025-07-21T18:01
 tags:
-  - shareable
   - pangolin
   - authentik
   - homeassistant

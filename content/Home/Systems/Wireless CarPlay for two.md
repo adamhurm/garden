@@ -2,7 +2,6 @@
 created: 2025-07-16T16:29
 updated: 2025-07-21T18:46
 tags:
-  - shareable
   - carplay
 ---
 Right now we have a CarPlay-enabled car with two regular users that have different cables (USB-C vs. Lightning) so the cable needs to be replaced every time the driver switches. We also need to plug our devices for CarPlay, which is a bit inconvenient if the device is fully charged and we just want to take a short trip.

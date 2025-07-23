@@ -5,7 +5,6 @@ tags:
   - house
   - homeassistant
   - esp32
-  - shareable
 ---
 I moved in to a house that came with 3 "smart" fans and 2 remote controls. Here's the process I went through when evaluating [[#Replacing the remote]] and eventually landing on [[#Using the controller in HomeAssistant]] instead. Now I have a controller in each room so I can remotely manage the fan/light.
 

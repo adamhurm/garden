@@ -5,7 +5,6 @@ tags:
   - homeassistant
   - vscode
   - proxmox
-  - shareable
 ---
 - https://github.com/hassio-addons/addon-vscode
 

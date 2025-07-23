@@ -4,7 +4,6 @@ updated: 2025-07-21T18:38
 tags:
   - ubuntu
   - game_hosting
-  - shareable
 ---
 
 ## Bare Metal Server

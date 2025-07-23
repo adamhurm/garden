@@ -6,7 +6,6 @@ tags:
   - longhorn
   - nfs
   - pvc
-  - shareable
 ---
 
 1. Create **myapp-target** pvc manifest. Set StorageClass to **longhorn**.

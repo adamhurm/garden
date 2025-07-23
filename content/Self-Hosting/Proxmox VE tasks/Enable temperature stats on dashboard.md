@@ -2,7 +2,6 @@
 created: 2025-07-17T13:23
 updated: 2025-07-21T18:33
 tags:
-  - shareable
   - proxmox
 ---
 The whole process is described by creator Meliox in [PVE Mods: node-sensor-readings-view](https://github.com/Meliox/PVE-mods?tab=readme-ov-file#node-sensor-readings-view). Here are the steps to perform in a root shell on your proxmox server:

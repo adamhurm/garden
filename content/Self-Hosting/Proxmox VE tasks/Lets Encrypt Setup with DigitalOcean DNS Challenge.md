@@ -5,7 +5,6 @@ tags:
   - proxmox
   - digitalocean
   - letsencrypt
-  - shareable
 ---
 Proxmox documentation: https://pve.proxmox.com/wiki/Certificate_Management
 

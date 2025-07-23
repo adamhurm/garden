@@ -2,7 +2,6 @@
 created: 2025-07-04T14:34
 updated: 2025-07-21T18:39
 tags:
-  - shareable
   - homelab
   - seafile
 ---

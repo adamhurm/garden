@@ -4,7 +4,6 @@ updated: 2025-07-21T18:39
 tags:
   - homeassistant
   - homelab
-  - shareable
 ---
 [MediaTracker](https://github.com/bonukai/MediaTracker) is a "self hosted platform \[created by [bonukai](https://github.com/bonukai)\] for tracking movies, tv shows, video games, books and audiobooks".
 
