@@ -1,5 +1,5 @@
 ---
-title: [Adam Hurm](https://adamhurm.com)'s workshop
+title: Adam Hurm's workshop
 created: 2025-07-21T19:57
 ---
 
@@ -23,3 +23,4 @@ Hey, welcome to my public workshop / digital garden. Thanks for stopping by.
     </a>
 </div>
 
+[adamhurm.com](https://adamhurm.com)
