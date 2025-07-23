@@ -1,5 +1,5 @@
 ---
-title: Adam Hurm's workshop
+title: [Adam Hurm](https://adamhurm.com)'s workshop
 created: 2025-07-21T19:57
 ---
 
