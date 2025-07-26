@@ -1,6 +1,6 @@
 ---
 created: 2025-07-07T00:49
-updated: 2025-07-21T18:39
+updated: 2025-07-26T12:25
 tags:
   - homelab
   - thinkstation
@@ -58,7 +58,7 @@ Go to [Lenovo parts lookup](https://support.lenovo.com/us/en/parts-lookup) and s
 Really pleasant experience with Lenovo support, because the part was 50% off and free shipping (2 days in my case).
 
 Unfortunately, even when using this cable, I still see the blinking red light on the GTX1080Ti: 
-![[1080Ti led green =).jpg]]
+![[!assets/1080Ti led green =).jpg]]
 ![[1080Ti led red =(.jpg]]
 
 It really seems like the 690W PSU does not deliver power to the second GFX power port on the motherboard. This cable was still needed, but I will also probably need to either upgrade the official power supply or add a second power supply specifically for my GPU. I would prefer to go the official route to minimize jank in my setup.
@@ -70,3 +70,6 @@ Unfortunately buying a new 900W PSU from Lenovo costs much more than the GFX pow
 ![[ThinkStation P720 PSU vs GFX PWR cable.png]]
 
 I looked on eBay and found the [900W PSU for \$80](https://www.ebay.com/itm/226127185307) and the [1000W PSU for \$108](https://www.ebay.com/itm/236153586440). Based on the [P720 Power Configurator guide](https://download.lenovo.com/pccbbs/thinkcentre_pdf/p920_p720_power_configurator_v1.6.pdf), the 900W PSU can drive a 250W graphics card and the 1000W PSU can drive a 300W graphics card. I'm worried the 900W PSU wouldn't work out with my GPU that hits around ~280W, so I'll accept the ~$30 price difference so that I don't have to troubleshoot more. I went ahead and pulled the trigger on the 1000W PSU. I want to follow the "officially-supported" path even though the P720 has reached End of Development support.
+
+Plugged in the 1000W PSU and tried again. Success!
+![[1080Ti led blue =).jpg]]
