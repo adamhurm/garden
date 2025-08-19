@@ -5,29 +5,40 @@ tags:
   - homelab
   - seafile
 ---
-I created a Debian 12 VM in Proxmox and installed docker. I started with Seafile 13 (with a few version number tweaks because it’s in testing state), then tried Seafile 12, and finally reverted to Seafile 11.  See [[#Active Troubleshooting]] section for more details.
+
+
+Context: These notes are from when I was attempting to use Seafile for external file sharing. I'm not currently using it because I found that support for reverse proxies was broken in recent releases, or at the very least I couldn't resolve issues with URL re-writes.
+
+In this attempt, I created a Debian 12 VM in Proxmox and installed docker. I started with Seafile 13 (with a few version number tweaks because it’s in testing state), then tried Seafile 12, and finally had to revert to Seafile 11 to fix the mixed content issues.  See [[#Active Troubleshooting]] section for more details.
 
 # Setup debian VM
 
 Create new VM in Proxmox UI and use a Debian 12 ISO. Go through installation wizard to create a a non-root user account.
 
-## Add some security controls
+## Add some additional security
 
 ```bash
-# log in as root and add your user account to `sudo` group
-ssh root@debianVM
-	> usermod -aG sudo adam
+> ssh root@debianVM
 
-# log in as user and start adding security packages
-ssh adam@debianVM
-	> sudo apt install ufw fail2ban
-	> sudo ufw enable
-	> sudo systemctl start ufw
-	> sudo systemctl enable ufw
+# Add your user account to the `sudo` group.
+usermod -aG sudo adam
+
+
+> ssh adam@debianVM
+
+# Install ufw for firewall, fail2ban for intrusion prevention
+sudo apt install ufw fail2ban
+sudo ufw enable
+sudo systemctl start ufw
+sudo systemctl enable ufw
+
+# Disable root login
+sudo passwd -l root
+sudo sed -i '/^root:/s/:[^:]*$/:\/sbin\/nologin/' /etc/passwd
 ```
 
 ## Use larger storage device for `seafile-data`
-I want to have the largest possible storage device for `seafile-data`, so I added a 4TB HDD via Proxmox UI. Then I set up the drive and created a link to `/opt/seafile-data` where the docker container expects to read it.
+I want to have the largest possible storage device for `seafile-data`, so I added a 4TB HDD via Proxmox UI. Then created a link to `/opt/seafile-data` where the docker container expects to read it.
 ```bash
 # Find the appropriate drive. In this example, we'll use sdb.
 sudo fdisk -l
@@ -62,7 +73,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 # Seafile 13 / 12
 
-https://manual.seafile.com/13.0/setup/setup_ce_by_docker/
+## 13.0 docker deployment following [manual](https://manual.seafile.com/13.0/setup/setup_ce_by_docker/)
 ```bash
 mkdir -p /opt/seafile/13
 cd /opt/seafile/13
@@ -71,7 +82,7 @@ wget https://manual.seafile.com/13.0/repo/docker/ce/seafile-server.yml
 wget https://manual.seafile.com/13.0/repo/docker/seadoc.yml
 wget https://manual.seafile.com/13.0/repo/docker/caddy.yml
 ```
-https://manual.seafile.com/12.0/setup/setup_ce_by_docker/
+## 12.0 docker deployment following [manual](https://manual.seafile.com/12.0/setup/setup_ce_by_docker/)
 ```bash
 mkdir -p /opt/seafile/12
 cd /opt/seafile/12
@@ -90,9 +101,9 @@ I can't use any file upload or seadoc functionalities in the Web UI. My browser 
 [This update](https://manual.seafile.com/13.0/changelog/server-changelog/#1204-beta-2024-11-21) removed `SERVICE_URL` + `FILE_SERVER_ROOT`  and  [`FORCE_HTTPS_IN_CONF`](https://github.com/haiwen/seafile-docker/blob/8dfce0892665c301a419d0e5b6f8b96a4669a07e/scripts/scripts_11.0/bootstrap.py#L115-L120) was [removed](https://github.com/haiwen/seafile-docker/blob/8dfce0892665c301a419d0e5b6f8b96a4669a07e/scripts/scripts_12.0/bootstrap.py#L115C1-L120C17) from `get_proto()`.  Seafile 11 is where it last worked, so a dirty fix is to revert back to Seafile 11 for now.
 
 ### Custom image
-https://github.com/haiwen/seafile-docker
-https://github.com/haiwen/seafile-server
-https://hub.docker.com/r/seafileltd/seafile-mc
+- [seafile-docker on GitHub](https://github.com/haiwen/seafile-docker)
+- [seafile-server on GitHub](https://github.com/haiwen/seafile-server)
+- [seafile-mc on DockerHub](https://hub.docker.com/r/seafileltd/seafile-mc)
 
 patch [11.0 `get_proto()`](https://github.com/haiwen/seafile-docker/blob/master/scripts/scripts_11.0/bootstrap.py#L115-L120) into seafile 13.0:
 ```bash
@@ -123,7 +134,7 @@ docker login
 docker build -t adamhurm/seafile:13.0.6 .
 ```
 
-Initially the build script left the `build/seafile_12.0/src/seafile-server` empty, and by manually populating that directory the `setup-seafile-mysql.sh` error below will be resolved. The fix is to replace `build/seafile_12.0/seafile-server-13.0.6` with appropriate git repo and then hide/remove `.git` .
+Initially the build script left the `build/seafile_12.0/src/seafile-server` directory empty, and by manually populating that directory the `setup-seafile-mysql.sh` error below will be resolved. The fix is to replace `build/seafile_12.0/seafile-server-13.0.6` with the appropriate git repo and then hide/remove `.git` .
 ```bash
 ## ERROR: seafile docker container can't find `setup-seafile-mysql.sh`
 [2025-07-05 21:45:19] Now running setup-seafile-mysql.py in auto mode.
@@ -153,8 +164,10 @@ error obtaining VCS status: exit status 128
 
 Even after all the tweaks above, I am still getting mixed content warnings and attempts to reach out to `http://sf.my.domain/seafhttp/*` so I will have to change more than just `get_proto()`.
 
+Right now this is still tbd, and I'm not sure if I'll come back to it.
+
 # Seafile 11
-https://manual.seafile.com/11.0/docker/deploy_seafile_with_docker/
+## 11.0 docker deployment following [manual](https://manual.seafile.com/11.0/docker/deploy_seafile_with_docker/)
 ```bash
 mkdir -p /opt/seafile/11
 cd /opt/seafile/11
@@ -171,14 +184,13 @@ Add all the environmental variables to `docker-compose.yml` manually because `.e
     environment:
       - FORCE_HTTPS_IN_CONF=true
 ```
-### Fix CSRF error
+### Fix [CSRF error](https://forum.seafile.com/t/forbidden-403-csrf-verification-failed-on-docker-11-0-1/18711/10)
 ```python
 # /opt/seafile-data/seafile/conf/seahub_settings.py
 SERVICE_URL = "https://sf.my.domain"              # edit SERVICE_URL
 CSRF_TRUSTED_ORIGINS = ['https://sf.my.domain']   # add CSRF_TRUSTED_ORIGINS
 ```
 
-https://forum.seafile.com/t/forbidden-403-csrf-verification-failed-on-docker-11-0-1/18711/10
 
 
 # Setting up pangolin redirect
