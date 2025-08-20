@@ -214,15 +214,14 @@ CSRF_TRUSTED_ORIGINS = ['https://sf.my.domain']   # add CSRF_TRUSTED_ORIGINS
 ```
 ### Set redirect rule in pangolin web UI
 #### using docker container name (recommended, dynamic)
-In pangolin **Resources**, under **Proxy** tab:
-	**Method:** `http`
-	**IP / Hostname:** `seafile`
+In pangolin **Resources**, under **Proxy** tab: \
+	**Method:** `http` \
+	**IP / Hostname:** `seafile` \
 	**Port:** `80`
+
 #### using docker container name (recommended, easy)
-If you used the newt container addon above and enabled Docker Socket discovery in your pangolin **Site**, you can go to pangolin **Resources** under **Proxy** tab:
-
-	**Method:** `http`
-
+If you used the newt container addon above and enabled Docker Socket discovery in your pangolin **Site**, you can go to pangolin **Resources** under **Proxy** tab: \
+	**Method:** `http` \
 	**IP / Hostname:** Click 'View Docker Containers' and select your caddy container
 
 #### docker inspect (manual example)
