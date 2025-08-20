@@ -232,5 +232,5 @@ Get IP of caddy container and add to Pangolin rule: \
 In pangolin **Resources** under **Proxy** tab: \
 	**Method:** `http` \
 	**IP / Hostname:** 172.18.0.x \
-	**Port:** `80` \
+	**Port:** `80`
 

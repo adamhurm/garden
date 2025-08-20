@@ -19,7 +19,7 @@ Datacenter -> ACME -> \
 	Challenge Plugins -> Click **Add** \
 		Plugin ID: `proxmox-my-domain` \
 		DNS API: `DigitalOcean DNS` \
-		DO_API_KEY: `dop_v1_+++++` \
+		DO_API_KEY: `dop_v1_+++++`
 
 ## Create and submit certificate request
 
@@ -28,4 +28,4 @@ proxmox (node) -> Certificates -> ACME -> \
 		Challenge Type: `DNS` \
 		Plugin: `proxmox-my-domain` \
 		Domain: `proxmox.my.domain` \
-	 Click **Order Certificates Now** \
+	 Click **Order Certificates Now**
