@@ -226,14 +226,11 @@ If you used the newt container addon above and enabled Docker Socket discovery i
 	**IP / Hostname:** Click 'View Docker Containers' and select your caddy container
 
 #### docker inspect (manual example)
-Get IP of caddy container and add to Pangolin rule:
+Get IP of caddy container and add to Pangolin rule: \
 `docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' seafile-caddy`
 
-In pangolin **Resources** under **Proxy** tab:
-
-	**Method:** `http`
-
-	**IP / Hostname:** 172.18.0.x
-
-	**Port:** `80`
+In pangolin **Resources** under **Proxy** tab: \
+	**Method:** `http` \
+	**IP / Hostname:** 172.18.0.x \
+	**Port:** `80` \
 
