@@ -23,7 +23,7 @@ Datacenter -> ACME -> \
 
 ## Create and submit certificate request
 
-proxmox (node) -> Certificates -> ACME -> \ 
+proxmox (node) -> Certificates -> ACME -> \
 	Click **Add** \
 		Challenge Type: `DNS` \
 		Plugin: `proxmox-my-domain` \
