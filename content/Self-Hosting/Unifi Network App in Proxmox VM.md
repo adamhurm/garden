@@ -1,10 +1,12 @@
 ---
 created: 2025-01-07T17:54
-updated: 2025-07-21T17:31
+updated: 2025-09-17T14:47
 tags:
   - proxmox
   - unifi
 ---
+Once I had the need for Unifi Protect, I ended up replacing this setup with a Dream Machine Pro. [Ubiquiti has also published UnifiOS](https://blog.ui.com/article/introducing-unifi-os-server) that can be self-hosted if you want to use your own hardware.
+
 Resources used:
 - [debian-vm script from ProxmoxVE community repo](https://community-scripts.github.io/ProxmoxVE/scripts?id=debian-vm)
 	- [useful debian-vm config guide from MickLesk](https://github.com/community-scripts/ProxmoxVE/discussions/836)

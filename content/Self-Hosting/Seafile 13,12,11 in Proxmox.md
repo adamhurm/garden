@@ -1,6 +1,6 @@
 ---
 created: 2025-07-04T14:34
-updated: 2025-07-21T18:39
+updated: 2025-08-20T00:22
 tags:
   - homelab
   - seafile

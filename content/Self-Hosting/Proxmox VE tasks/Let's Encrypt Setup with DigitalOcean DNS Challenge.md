@@ -1,6 +1,6 @@
 ---
 created: 2025-01-08T16:38
-updated: 2025-07-21T17:35
+updated: 2025-08-20T00:32
 tags:
   - proxmox
   - digitalocean
