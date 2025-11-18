@@ -27,8 +27,8 @@ On my Mac machine, I installed talosctl and started the setup process:
 brew install siderolabs/tap/talosctl
 
 # Populate environment with cluster and node details
-export CONTROL_PLANE_IP=10.0.0.240
-export WORKER_IP=("10.0.0.241" "10.0.0.242" "10.0.0.243")
+export CONTROL_PLANE_IP=10.0.0.20
+export WORKER_IP=("10.0.0.21" "10.0.0.22" "10.0.0.23")
 export CLUSTER_NAME=dev
 
 # Confirm the target disk for installation
@@ -80,10 +80,10 @@ argocd-server   ClusterIP   10.49.213.39   <none>        80/TCP,443/TCP �
 # Log in to ArgoCD Server via ArgoCD CLI
 adam@node0:~$ argocd login 10.49.213.39:443
 WARNING: server is not configured with TLS. Proceed (y/n)? y
-Username: mouser
+Username: myuser
 Password: 
 'myuser:login' logged in successfully
-Context '10.43.219.42:443' updated
+Context '10.49.213.39:443' updated
 
 # Add cluster to ArgoCD using kubectl context
 adam@node0:~$ argocd cluster add admin@dev
@@ -92,7 +92,7 @@ WARNING: This will create a service account `argocd-manager` on the cluster refe
 {"level":"info","msg":"ClusterRole \"argocd-manager-role\" updated","time":"2025-09-29T19:03:31Z"}
 {"level":"info","msg":"ClusterRoleBinding \"argocd-manager-role-binding\" updated","time":"2025-09-29T19:03:31Z"}
 {"level":"info","msg":"Using existing bearer token secret \"argocd-manager-long-lived-token\" for ServiceAccount \"argocd-manager\"","time":"2025-09-29T19:03:31Z"}
-Cluster 'https://10.0.0.240:6443' added
+Cluster 'https://10.0.0.20:6443' added
 ```
 ## Additional configuration
 - Talos provides [support documentation for iSCSI Storage with Synology CSI](https://www.talos.dev/v1.11/kubernetes-guides/configuration/synology-csi/)
