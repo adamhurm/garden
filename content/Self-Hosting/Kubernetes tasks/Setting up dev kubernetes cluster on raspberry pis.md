@@ -2,13 +2,14 @@
 created: 2025-09-29T12:45
 updated: 2025-09-29T15:07
 ---
-I am setting up a dev kubernetes cluster so that I can have a testing ground before deploying things to my prod cluster. That being said, that probably won't stop me from pushing breaking changes to prod to keep things interesting.
+I'm setting up a dev kubernetes cluster so that I can have a testing ground before deploying things to my prod cluster. That being said, that probably won't stop me from pushing breaking changes to prod to keep things interesting.
 
 ## Cluster hardware
 
 **"Prod"**
 - TP-Link 4-port Switch (TL-SG105)
 - 3x Dell OptiPlex Mini 7060
+
 **"Dev"**
 - TP-Link 4-port PoE+ Switch (TL-SG1005P)
 - 4x Raspberry Pi 4 (4GB RAM) w/ PoE+ HATs
@@ -16,7 +17,7 @@ I am setting up a dev kubernetes cluster so that I can have a testing ground bef
 ## Getting Started
 
 ### Talos Linux image
-I will be using [Talos Linux ](https://www.talos.dev), "The Kubernetes Operating System". I used the Talos [Image Factory](https://factory.talos.dev) service to create an image that I will flash to all my nodes. The setup wizard does a great job describing what information is needed and provides easily-searchable list of the system extensions.
+I'll be using [Talos Linux](https://www.talos.dev), "The Kubernetes Operating System". I used the Talos [Image Factory](https://factory.talos.dev) service to create an image that I will flash to all my nodes. The setup wizard does a great job describing what information is needed and provides easily-searchable list of the system extensions.
 
 I used balenaEtcher to flash the image to a microSD card for each Pi.
 
