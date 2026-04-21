@@ -1,11 +1,11 @@
 ## Approaches to editing workshop notes
 - Obsidian
 	- Open Obsidian Vault via Terminal on macOS. We could use built-in [obsidian cli](https://obsidian.md/help/cli), but these commands don't require Obsidian.app to be running.
-		  - First time:
+	  > **First time:**
 		    ```
 		   open "obsidian://open?path=/absolute/path/to/garden/content"
 		    ```
-		  - Re-open:
+	  > **Re-open:**
 		    ```
 		   open "obsidian://vault/content"
 		    ```
