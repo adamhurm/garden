@@ -1,9 +1,9 @@
 ---
-title: Adam Hurm's workshop
+title: workshop
 created: 2025-07-21T19:57
 ---
 
-Hey, welcome to my public workshop / digital garden. Thanks for stopping by. 
+Hey, welcome to my public workshop. Thanks for stopping by. 
 
 ## Find me on other sites
 
